@@ -71,4 +71,4 @@ Coming soon — an interactive dashboard covering IPO trends, exchange compariso
 ---
 
 ## 🤝 Connect
-If you found this useful, let's connect on [LinkedIn](https://www.linkedin.com/in/your-profile)!
+If you found this useful, let's connect on [LinkedIn]([https://www.linkedin.com/in/pauravi-vinchurkar-48711120a/])!
