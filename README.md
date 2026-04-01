@@ -92,3 +92,80 @@ Both datasets were merged via an **outer join on `dealID`**, resulting in a 2,84
 ### Tools Used
 - `pandas` — merging, type conversion, null handling
 - `numpy` — numeric operations
+
+# 📈 IPO Trends Analysis — NASDAQ & NYSE
+
+> **Exploratory Data Analysis (EDA) | Python**  
+> Investigating what drives IPO fundraising across exchanges, sectors, and time (2021 onward)
+
+---
+
+## 📌Phase 3 - EDA
+
+Problem Statement
+> *What factors influence the total amount raised in NASDAQ and NYSE IPOs — and how do these factors differ between technology sector IPOs and others from 2021 onward?*
+
+---
+
+## 📁 Dataset
+
+- **Source:** NASDAQ IPOs cleaned dataset (`nasdaq_ipos_cleaned.csv`)
+- **Scope:** IPOs listed on NASDAQ and NYSE exchanges, 2021–2025
+- **Key columns used:**
+  - `SharePrice` — Proposed share price at IPO
+  - `sharesOffered` — Number of shares offered to the public
+  - `TotalValue(M)` — Total IPO offering value (in millions)
+  - `Exchange` — Proposed listing exchange
+  - `filedDate` / `pricedDate` — Filing and pricing dates
+  - `companyName` — Used to derive a tech sector flag (`isTech`)
+
+---
+
+## 🔍 Analysis Structure
+
+### 1. 📊 Univariate Analysis
+- **Summary statistics** of all numeric features
+- **Distribution of Total IPO Offering Value** — right-skewed with most companies raising moderate amounts; large IPOs are rare events
+
+### 2. 🔗 Bivariate Analysis
+- **Share Price vs. Total Value** — High share price alone does not guarantee large fundraising; the biggest deals are spread across price ranges
+- **Total Value by Exchange** — NYSE and NASDAQ dominate high-value IPOs; NYSE Arca and NYSE MKT cater to significantly smaller offerings
+- **Days from Filing to Pricing** — Most companies reach pricing within ~3 months of filing; longer waits are uncommon
+- **IPO Counts per Exchange** — NASDAQ Capital Market is the most popular venue, preferred by smaller and growth-oriented companies
+
+### 3. 📅 Time-Series Trends
+- **Yearly IPO counts & median fundraising** — 2021 saw an exceptional boom; post-2021 saw fewer IPOs but the median fundraising per deal remained high, indicating market selectivity
+- **Quarterly filing & pricing trends** — Surge in early 2021, followed by a sustained decline; filing and pricing dates align closely, indicating most filers complete the process within the same or next quarter
+
+### 4. 🔄 Multivariate Analysis
+- **Pairplot (colored by tech sector)** — Visualizes relationships between share price, shares offered, total value, year, and tech flag
+- **Correlation heatmap** — Share price and shares offered are the strongest predictors of total value raised; filing year shows little correlation
+
+### 5. 🏷️ Tech vs. Non-Tech Comparison
+- **isTech flag** derived from company name keywords (`technology`, `tech`, `software`, `cloud`, `ai`, `semiconductor`, etc.)
+- **Boxplot comparison** — No dramatic difference in core fundraising distribution between tech and non-tech IPOs; both sectors are capable of sizable offerings
+- **IPO counts by year and sector** — Non-tech sectors dominate IPO volume across all years; 2021 saw a surge in both tech and non-tech listings
+
+---
+
+## 💡 Key Findings
+| Finding | Detail |
+|--------|--------|
+| 📐 **Core formula** | `Money Raised = Share Price × Shares Offered` |
+| 🏛️ **NYSE** | Attracts larger IPOs by funds raised |
+| 📡 **NASDAQ** | Higher volume; preferred by growth-stage companies |
+| 📈 **2021 anomaly** | Exceptional IPO boom; not a sustainable baseline trend |
+| 🤝 **Tech ≠ bigger** | Tech and non-tech companies raised similar amounts on average |
+| ⏱️ **Fast process** | Most companies price within ~3 months of filing |
+| 🎯 **Market selectivity** | Post-boom, fewer but stronger companies still raised well |
+
+---
+
+## 🛠️ Tech Stack
+| Library | Purpose |
+|---------|---------|
+| `pandas` | Data loading, cleaning, grouping |
+| `numpy` | Numerical operations |
+| `matplotlib` / `seaborn` | Visualizations (histograms, boxplots, heatmaps, pairplots) |
+| `scikit-learn` | Feature engineering, encoding, classification pipeline |
+| `Jupyter Notebook` | Interactive EDA workflow |
