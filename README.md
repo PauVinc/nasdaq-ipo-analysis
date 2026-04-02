@@ -10,7 +10,7 @@ A complete data project analyzing 4+ years of NASDAQ IPO data — from raw web s
 |-------|-------------|--------|
 | Phase 1 | Data Scraping | ✅ Complete |
 | Phase 2 | Data Cleaning & Preprocessing | ✅ Complete |
-| Phase 3 | Exploratory Data Analysis (EDA) | 🔄 In Progress |
+| Phase 3 | Exploratory Data Analysis (EDA) | ✅ Complete |
 | Phase 4 | Power BI Dashboard | ⏳ Upcoming |
 
 ---
