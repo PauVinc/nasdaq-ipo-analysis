@@ -11,7 +11,7 @@ A complete data project analyzing 4+ years of NASDAQ IPO data — from raw web s
 | Phase 1 | Data Scraping | ✅ Complete |
 | Phase 2 | Data Cleaning & Preprocessing | ✅ Complete |
 | Phase 3 | Exploratory Data Analysis (EDA) | ✅ Complete |
-| Phase 4 | Power BI Dashboard | ⏳ Upcoming |
+| Phase 4 | Power BI Dashboard | ✅ Complete |
 
 ---
 
@@ -169,3 +169,93 @@ Problem Statement
 | `matplotlib` / `seaborn` | Visualizations (histograms, boxplots, heatmaps, pairplots) |
 | `scikit-learn` | Feature engineering, encoding, classification pipeline |
 | `Jupyter Notebook` | Interactive EDA workflow |
+
+---
+
+## 📌Phase 4 - Dashboard 
+
+# 📈 NASDAQ IPO Analytics Dashboard — Power BI
+
+A single-page interactive Power BI dashboard analyzing IPO activity on NASDAQ, covering deal status, exchange distribution, share pricing, and multi-year trends.
+
+---
+
+## 📊 Dashboard Overview
+
+The report is built on a cleaned NASDAQ IPO dataset (`nasdaq_ipos_cleaned`) and presents the following key analytics:
+
+### KPI Cards
+| Metric | Description |
+|---|---|
+| **Total Companies** | Count of unique companies in the dataset |
+| **Total Value Raised (M)** | Aggregate capital raised across all IPOs |
+| **Total Shares Offered (M)** | Total shares offered across all deals |
+| **Total Share Price** | Sum of share prices across listings |
+
+### Visualizations
+
+| Chart | Type | Insight |
+|---|---|---|
+| **IPO Count by Exchange** | Donut Chart | Distribution of IPO activity across NASDAQ exchanges |
+| **Filed vs. Priced IPOs** | Pie Chart | Breakdown of deal status (Filed / Priced) |
+| **Share Price & Shares Offered by Exchange** | Clustered Bar Chart | Comparative valuation metrics by exchange |
+| **IPO Trend by Quarter** | Clustered Column Chart | Quarter-over-quarter IPO volume segmented by deal status |
+| **Yearly IPO Trend** | Area Chart | Long-term year-wise IPO volume trend |
+| **Year-wise Exchange Performance** | Treemap | Hierarchical view of exchange activity by year and quarter |
+
+### Filters / Slicers
+- **Date-wise Filter** — Filter all visuals by `FiledDate`
+- **Exchange-wise Filter** — Filter all visuals by Exchange
+
+---
+
+## 🗂️ Data Source
+
+- **Dataset:** `nasdaq_ipos_cleaned`
+- **Key Fields:**
+  - `CompanyName` — Issuing company
+  - `Exchange` — NASDAQ exchange segment
+  - `DealStatus` — Filed or Priced
+  - `FiledDate` — IPO filing date (supports Year / Quarter / Month / Day hierarchy)
+  - `SharePrice` — Offer price per share
+  - `SharesOffered(M)` — Shares offered in millions
+  - `TotalValue(M)` — Total deal value in millions
+
+---
+
+## 🛠️ Built With
+
+- **Power BI Desktop** (2026.03 release)
+- **Data Cleaning:** Pre-processed dataset loaded into the internal data model
+- **Theme:** CY25SU10 base theme
+
+---
+
+## 🚀 Getting Started
+
+1. Download and open `ipo_project.pbix` in [Power BI Desktop](https://powerbi.microsoft.com/desktop).
+2. If prompted, refresh the data source and point it to your updated `nasdaq_ipos_cleaned` dataset.
+3. Use the **Date** and **Exchange** slicers to explore specific time periods or exchange segments.
+4. Publish to Power BI Service to share with stakeholders.
+
+---
+
+## 📁 File Structure
+
+```
+ipo_project.pbix
+├── Report/Layout           # Page layout and visual configurations
+├── DataModel               # Internal tabular data model
+├── Report/StaticResources  # Theme files and registered images
+├── Metadata                # Report metadata (version, creation info)
+└── Settings                # Report-level settings
+```
+
+---
+
+## 📌 Notes
+
+- The dashboard contains a single report page with all visuals.
+- All visuals are cross-filtered — clicking any chart element filters the rest of the page.
+- The treemap and column chart both support drill-down through the date hierarchy (Year → Quarter → Month → Day).
+
